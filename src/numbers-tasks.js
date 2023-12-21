@@ -251,8 +251,9 @@ function getCube(num) {
  *   3  => 2
  *   10 => 55
  */
-function getFibonacciNumber(/* index */) {
-  throw new Error('Not implemented');
+function getFibonacciNumber(index) {
+  const a = (1 + 5 ** 0.5) / 2;
+  return Math.round(a ** index / 5 ** 0.5);
 }
 
 /**
@@ -413,7 +414,7 @@ function getNumberValue(number) {
  * '5'      => false
  */
 function isNumber(number) {
-  return number >= 0;
+  return Number.isFinite(number);
 }
 
 /**
@@ -549,7 +550,7 @@ function getIntegerPartNumber(number) {
  * 0.1, 0.2, 0.3 => 0.6
  */
 function getSumOfNumbers(x1, x2, x3) {
-  return x1 + x2 + x3;
+  return (x1 + x2 + x3).toFixed(1);
 }
 
 /**
@@ -565,7 +566,7 @@ function getSumOfNumbers(x1, x2, x3) {
  * 0, 5   => 5
  */
 function getMaxNumber(firstNumber, secondNumber) {
-  return firstNumber > secondNumber ? firstNumber : secondNumber;
+  return Math.max(firstNumber, secondNumber);
 }
 
 /**
@@ -581,7 +582,7 @@ function getMaxNumber(firstNumber, secondNumber) {
  * -1, 1 => -1 | 0 | 1
  */
 function getRandomInteger(min, max) {
-  return Math.random();
+  return Math.floor(Math.random() * (max - min)) + min;
 }
 
 /**
@@ -594,8 +595,8 @@ function getRandomInteger(min, max) {
  * @example:
  * 3, 4 => 5
  */
-function getHypotenuse(/* a, b */) {
-  throw new Error('Not implemented');
+function getHypotenuse(a, b) {
+  return Math.hypot(a, b);
 }
 
 /**
@@ -611,8 +612,12 @@ function getHypotenuse(/* a, b */) {
  * 10 => 5
  * 15 => 8
  */
-function getCountOfOddNumbers(/* number */) {
-  throw new Error('Not implemented');
+function getCountOfOddNumbers(number) {
+  let counter = 0;
+  for (let i = 1; i <= Math.abs(number); i += 2) {
+    counter += 1;
+  }
+  return counter;
 }
 
 module.exports = {
